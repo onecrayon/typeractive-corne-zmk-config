@@ -9,6 +9,44 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        // Triggers the app switcher forward
+        app_forward: app_forward {
+            label = "&APP_FORWARD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <20>;
+            wait-ms = <20>;
+            bindings = <&macro_press>
+                , <&kp LGUI>
+                , <&macro_tap>
+                , <&kp TAB>
+                , <&macro_tap>
+                , <&sk LGUI>
+                , <&macro_release>
+                , <&kp LGUI>;
+        };
+
+        // Triggers the app switcher backward
+        app_backward: app_backward {
+            label = "&APP_BACKWARD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <20>;
+            wait-ms = <20>;
+            bindings = <&macro_press>
+                , <&kp LGUI>
+                , <&macro_tap>
+                , <&kp LS(TAB)>
+                , <&macro_tap>
+                , <&sk LGUI>
+                , <&macro_release>
+                , <&kp LGUI>;
+        };
+    };
+};
+
+/ {
     behaviors {
         // Fires one key on tap (or tap and hold) or acts as a modifier on hold
         dth: double_tap_hold {
@@ -85,13 +123,13 @@
 
                 solo_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC  | RET   | CMD-SHFT-4 | CMD-SHFT-TAB | CMD-TAB | CMD-BSPC |   |  |  |  |  |  |  |
-// | TAB  | SHFT  | CTRL       | OPT          | GUI     | SPACE    |   |  |  |  |  |  |  |
-// |      | CMD-/ |            | CMD-[        | CMD-]   | CMD-N    |   |  |  |  |  |  |  |
-//                             | ---          | GUI     | BKSP     |   |  |  |  |
+// | ESC  | RET   | CMD-SHFT-4 | App-  | App+  | CMD-BSPC |   |  |  |  |  |  |  |
+// | TAB  | SHFT  | CTRL       | OPT   | GUI   | SPACE    |   |  |  |  |  |  |  |
+// |      | CMD-/ |            | CMD-[ | CMD-] | CMD-N    |   |  |  |  |  |  |  |
+//                             | ---   | GUI   | BKSP     |   |  |  |  |
                         display-name = "Solo";
                         bindings = <
-   &kp ESC   &kp RET      &kp LG(LS(N4))  &kp LG(LS(TAB))  &kp LG(TAB)  &kp N5         &none  &none  &none  &none  &none  &none
+   &kp ESC   &kp RET      &kp LG(LS(N4)) &app_backward   &app_forward &kp LG(BSPC)   &none  &none  &none  &none  &none  &none
    &kp TAB   &sk LSHFT    &sk LCTRL      &sk LALT        &sk LGUI     &kp SPACE      &none  &none  &none  &none  &none  &none
    &none     &kp LG(FSLH) &none          &kp LG(LBKT)    &kp LG(RBKT) &kp LG(N)      &none  &none  &none  &none  &none  &none
                           	             &trans          &trans       &trans         &trans &trans &trans
