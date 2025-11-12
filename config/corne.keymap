@@ -18,7 +18,7 @@
             bindings = <&kp>, <&kp>;
             flavor = "hold-preferred";
             quick-tap-ms = <300>;
-            display-name = "Double-Tap-Hold"
+            display-name = "Double-Tap-Hold";
         };
         
         // Fires a key on tap or activates a layer on hold
@@ -29,7 +29,7 @@
             bindings = <&mo>, <&kp>;
             flavor = "balanced";
             quick-tap-ms = <300>;
-            display-name = "Key-Tap-Hold-Layer"
+            display-name = "Key-Tap-Hold-Layer";
         };
     };
 };
