@@ -91,7 +91,7 @@
 //                             | ---          | GUI     | BKSP     |   |  |  |  |
                         display-name = "Solo";
                         bindings = <
-   &kp ESC   &kp RET      &kp LG(LS(N4)  &kp LG(LS(TAB)  &kp LG(TAB)  &kp N5         &none  &none  &none  &none  &none  &none
+   &kp ESC   &kp RET      &kp LG(LS(N4))  &kp LG(LS(TAB))  &kp LG(TAB)  &kp N5         &none  &none  &none  &none  &none  &none
    &kp TAB   &sk LSHFT    &sk LCTRL      &sk LALT        &sk LGUI     &kp SPACE      &none  &none  &none  &none  &none  &none
    &none     &kp LG(FSLH) &none          &kp LG(LBKT)    &kp LG(RBKT) &kp LG(N)      &none  &none  &none  &none  &none  &none
                           	             &trans          &trans       &trans         &tarns &trans &trans
